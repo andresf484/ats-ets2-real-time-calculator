@@ -9,8 +9,8 @@ $(document).ready( function() {
     let load_table = '';
     load_table +=`
     <tr>
-        <td>00:00</td>
-        <td>00:00</td>
+        <td class="text-center">00:00</td>
+        <td class="text-center">00:00</td>
     </tr>
     `;
 
@@ -47,14 +47,32 @@ function calculate(){
 
     let load_table = "";
 
-    load_table +=`
+    // 	Tiempo convertido a la realidad
+    if ( game_time_scale >= 60) {
+    
+        var converted_hours = game_time_scale / 60;
+    
+        load_table +=`
 
-    <tr>
-        <td>`+hours+`:`+minutes+`</td>
-        <td>`+``+` `+game_time_scale+` minutes</td>
-    </tr>
+        <tr>
+            <td class="text-center">`+hours+`:`+minutes+`</td>
+            <td class="text-center">`+``+` `+converted_hours.toFixed(2)+` Horas</td>
+        </tr>
 
-    `;
+        `;
+
+    } else {
+        
+        load_table +=`
+
+        <tr>
+            <td class="text-center">`+hours+`:`+minutes+`</td>
+            <td class="text-center">`+``+` `+game_time_scale.toFixed(2)+` Minutos</td>
+        </tr>
+
+        `;
+
+    }
 
     document.getElementById("data_table").innerHTML = load_table;
 
