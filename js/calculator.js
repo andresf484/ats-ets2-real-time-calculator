@@ -25,7 +25,7 @@ function loadRanges(){
     document.getElementById("txtHours").setAttribute("min", 0);
     document.getElementById("txtHours").setAttribute("step", 1);
 
-    document.getElementById("txtMinutes").setAttribute("min", 1);
+    document.getElementById("txtMinutes").setAttribute("min", 0);
     document.getElementById("txtMinutes").setAttribute("max", 59);
     document.getElementById("txtMinutes").setAttribute("step", 1);
 
