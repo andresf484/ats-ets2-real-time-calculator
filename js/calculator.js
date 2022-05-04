@@ -108,8 +108,8 @@ function calculate(){
         let load_table = '';
         load_table +=`
         <tr>
-            <td class="text-center">00:00 NaN</td>
-            <td class="text-center">00:00 NaN</td>
+            <td class="text-center">00:00</td>
+            <td class="text-center">00:00</td>
         </tr>
         `;
 
