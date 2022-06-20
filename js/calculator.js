@@ -6,6 +6,9 @@ $(document).ready( function() {
 
     loadRanges();
 
+    document.getElementById("txtHours").disabled = true;
+    document.getElementById("txtMinutes").disabled = true;
+
     let load_table = '';
     load_table +=`
     <tr>
@@ -63,6 +66,36 @@ function calculate(){
 
     // https://www.tgmtruck.com/2021/07/convertir-tiempo-juego-tiempo-real-en.html
 
+    var ats = document.getElementById("rdoATS").checked;
+    //console.log(ats);
+    
+    var ets2eu = document.getElementById("rdoETS2EU").checked;
+    //console.log(ets2eu);
+    
+    var ets2uk = document.getElementById("rdoETS2UK").checked;
+    //console.log(ets2uk);
+
+    if(ats == true) {
+        //console.log("ATS");
+        var scale = 20;
+        document.getElementById("txtHours").disabled = false;
+        document.getElementById("txtMinutes").disabled = false;
+    }else if(ets2eu == true){
+        //console.log("ETS2EU");
+        var scale = 19;
+        document.getElementById("txtHours").disabled = false;
+        document.getElementById("txtMinutes").disabled = false;
+    }else if(ets2uk == true){
+        //console.log("ETS2UK");
+        var scale = 15;
+        document.getElementById("txtHours").disabled = false;
+        document.getElementById("txtMinutes").disabled = false;
+    }else{
+        document.getElementById("txtHours").disabled = true;
+        document.getElementById("txtMinutes").disabled = true;
+    }
+
+
     let hours = validateHours();
     let minutes = validateMinutes();
 
@@ -70,7 +103,7 @@ function calculate(){
 
         var total_minutes_ingame = parseInt(hours) * 60 + parseInt(minutes);
     
-        var game_time_scale = total_minutes_ingame / 19; // Euro truck Simulator 2 time scale "time compression": 1:19
+        var game_time_scale = total_minutes_ingame / scale; // Euro truck Simulator 2 time scale "time compression": 1:19
     
         let load_table = "";
     
