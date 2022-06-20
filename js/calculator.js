@@ -113,23 +113,19 @@ function calculate(){
             var converted_hours = game_time_scale / 60;
         
             load_table +=`
-    
             <tr>
                 <td class="text-center">`+hours+`:`+minutes+`</td>
                 <td class="text-center">`+``+` `+converted_hours.toFixed(2)+` Horas</td>
             </tr>
-    
             `;
     
         } else {
             
             load_table +=`
-    
             <tr>
                 <td class="text-center">`+hours+`:`+minutes+`</td>
                 <td class="text-center">`+``+` `+game_time_scale.toFixed(2)+` Minutos</td>
             </tr>
-    
             `;
     
         }
